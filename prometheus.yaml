@@ -18,12 +18,11 @@ spec:
     runAsUser: 1000
     runAsNonRoot: true
   serviceMonitorSelector: {}
-  additionalScrapeConfigs:
-    - job_name: 'node-exporter'
-      static_configs:
-        - targets:
-            - 'node-exporter:9100'
   evaluationInterval: 30s
   image: quay.io/prometheus/prometheus:v2.22.1
   scrapeInterval: 30s
   portName: web
+  additionalScrapeConfigs:
+    name: prometheus-config
+  configMaps:
+    - name: prometheus-config
