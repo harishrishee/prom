@@ -22,4 +22,4 @@ spec:
   additionalScrapeConfigs:
     - job_name: 'node-exporter'
       static_configs:
-        - targets: ['prometheus:9090']  # Adjust to match your Prometheus service name or IP
+        - targets: ['prometheus:9090']
