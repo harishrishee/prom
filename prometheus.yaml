@@ -23,6 +23,4 @@ spec:
   scrapeInterval: 30s
   portName: web
   additionalScrapeConfigs:
-    name: prometheus-config
-  configMaps:
-    - prometheus-config
+    - name: prometheus-config
