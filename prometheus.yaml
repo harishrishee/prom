@@ -5,21 +5,25 @@ metadata:
   labels:
     app: prometheus
 spec:
-  image: quay.io/prometheus/prometheus:v2.22.1
+  replicas: 2
+  version: v2.22.1
+  serviceAccountName: prometheus
   nodeSelector:
     kubernetes.io/os: linux
-  replicas: 2
   resources:
     requests:
       memory: 400Mi
   securityContext:
     fsGroup: 2000
-    runAsNonRoot: true
     runAsUser: 1000
-  serviceAccountName: prometheus
-  version: v2.22.1
+    runAsNonRoot: true
   serviceMonitorSelector: {}
   additionalScrapeConfigs:
     - job_name: 'node-exporter'
       static_configs:
-        - targets: ['node-exporter:9100']
+        - targets:
+            - 'node-exporter:9100'  # Adjust if necessary
+  evaluationInterval: 30s
+  image: quay.io/prometheus/prometheus:v2.22.1
+  scrapeInterval: 30s
+  portName: web
