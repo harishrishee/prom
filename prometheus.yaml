@@ -25,4 +25,4 @@ spec:
   additionalScrapeConfigs:
     name: prometheus-config
   configMaps:
-    - name: prometheus-config
+    - prometheus-config
