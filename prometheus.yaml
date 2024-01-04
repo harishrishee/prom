@@ -22,7 +22,7 @@ spec:
     - job_name: 'node-exporter'
       static_configs:
         - targets:
-            - 'node-exporter:9100'  # Adjust if necessary
+            - 'node-exporter:9100'
   evaluationInterval: 30s
   image: quay.io/prometheus/prometheus:v2.22.1
   scrapeInterval: 30s
